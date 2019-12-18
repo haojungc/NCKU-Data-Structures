@@ -6,21 +6,21 @@ using namespace std;
 void heightUnion(int, int);
 int collapsingFind(int);
 
-int t;             // the # of trees
-int *height;       // the height of tree t
-int parent[1000];  // the parent of the node
-int *root;         // the root of tree t
+int t;            // the # of trees
+int *height;      // the height of tree t
+int parent[1000]; // the parent of the node
+int *root;        // the root of tree t
 
 int main() {
-    int n, p, q;  // n: the # of nodes in tree t
-                  // p: the id of the node
-                  // q: the id of the parent node
+    int n, p, q; // n: the # of nodes in tree t
+                 // p: the id of the node
+                 // q: the id of the parent node
     string cmd;
 
     // Set all trees
     cin >> t;
     height = new int[t];
-    root = new int[t];
+    root   = new int[t];
     for (int i = 0; i < t; i++) {
         cin >> n;
         for (int j = 0; j < n; j++) {
@@ -30,7 +30,7 @@ int main() {
             if (q < 0) {
                 height[i] = -q;
                 parent[p] = -1;
-                root[i] = p;
+                root[i]   = p;
             }
             // not root
             else {
@@ -62,8 +62,8 @@ int main() {
 }
 
 void heightUnion(int r1, int r2) {
-    int t1, t2;  // t stands for tree
-    int h1, h2;  // h stands for height
+    int t1, t2; // t stands for tree
+    int h1, h2; // h stands for height
 
     // Get heights of trees
     for (int i = 0; i < t; i++) {
@@ -81,16 +81,16 @@ void heightUnion(int r1, int r2) {
     if (h1 >= h2) {
         parent[r2] = r1;
         height[t1] = (h1 >= h2 + 1) ? h1 : h2 + 1;
-        root[t2] = root[t1];
+        root[t2]   = root[t1];
     } else {
         parent[r1] = r2;
         height[t2] = (h2 >= h1 + 1) ? h2 : h1 + 1;
-        root[t1] = root[t2];
+        root[t1]   = root[t2];
     }
 }
 
 int collapsingFind(int index) {
-    int r, lead, trail;  // r: root
+    int r, lead, trail; // r: root
     int total_step = 0;
 
     // Find root
@@ -100,7 +100,7 @@ int collapsingFind(int index) {
 
     // Collapse tree
     for (trail = index; parent[trail] != r; trail = lead) {
-        lead = parent[trail];
+        lead          = parent[trail];
         parent[trail] = r;
         total_step++;
     }

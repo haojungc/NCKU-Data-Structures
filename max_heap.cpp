@@ -6,12 +6,12 @@ void max_heap(int);
 void swap(int, int);
 int find_max_price(int);
 
-int m, n;  // m: the # of rows in the stadium
-           // n: the # of football fans waiting in the line
-int *x;    // x[i]: the initial # of empty seats in row "i"
+int m, n; // m: the # of rows in the stadium
+          // n: the # of football fans waiting in the line
+int *x;   // x[i]: the initial # of empty seats in row "i"
 
 int main() {
-    int t;  // the # of test cases
+    int t; // the # of test cases
 
     cin >> t;
     for (int i = 0; i < t; i++) {
@@ -50,13 +50,13 @@ void max_heap(int child) {
 
 void swap(int a, int b) {
     int tmp = x[a];
-    x[a] = x[b];
-    x[b] = tmp;
+    x[a]    = x[b];
+    x[b]    = tmp;
 }
 
 int find_max_price(int parent) {
-    int child1 = parent * 2 + 1;
-    int child2 = child1 + 1;
+    int child1    = parent * 2 + 1;
+    int child2    = child1 + 1;
     int max_child = -1;
 
     // only one child
