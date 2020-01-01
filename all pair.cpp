@@ -43,7 +43,7 @@ int main() {
         }
 
         for (int v = 0; v < n; v++) {
-            // Find the shortest paths of every vertex starting from vertex 0
+            // Find the shortest paths of every vertex starting from vertex v
             BellmanFord(v, n, m, w, pred, dist);
 
             // Output the results
