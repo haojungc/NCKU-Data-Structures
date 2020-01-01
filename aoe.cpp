@@ -14,7 +14,8 @@ typedef struct _Activity {
 } Activity;
 
 int main() {
-    int n, maxVertex; // the # of activities
+    int n, maxVertex; // n: the # of activities
+                      // maxVertex: the maximum # of vertices
     bool **adjMatrix; // adjMatrix[u][v]: true if edge <u, v> exists
     int **duration;   // duration[u][v]: the duration of edge <u, v>
     int *ee, *le;     // ee[j]: the earliest event time event j can occur
